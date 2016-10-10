@@ -1,0 +1,13 @@
+//动画的基本原理： 盒子的offsetLeft + 步长
+//
+	var btn = document.getElementById('button')[0];
+	var div = document.getElementById('div')[0];
+	btn.onclick = fucntion(){
+		timer = setInterval(function(){
+			if(div.offsetLeft > 400){
+				clearInterval(timer);
+			}
+			div.style.left = div.offsetLeft + 10 + "px"
+		},20)
+		
+	}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>小火箭</title>
+	<style type="text/css" media="screen">
+.top{
+	position: fixed;
+	right: 50px;
+	bottom:100px;
+	display: none;
+}
+	</style>
+</head>
+<body>
+	<div class="top" id="goTop">
+		<img src="images/Top.jpg" alt="huojian">
+	</div>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+	<p>无所谓内容</p>
+</body>
+</html>
+<script type="text/javascript">
+var gotop = document.getElementById('goTop');//取得小图标
+window.onscroll = function(){   //发生滚动事件
+	if(document.body.scrollTop>0){  //评断scrolltop值是否大于0
+		gotop.style.display = "block";//显示
+		var leader = document.body.scrollTop;//将现在的top值给leader
+	}
+	else {
+		gotop.style.display = "none";
+	}
+	var time = null; var target= 0;
+	gotop.onclick = function(){		通过定时器动画返回顶点
+		target = 0;	目标位置
+		timer = setInterval(function(){
+			leader = leader + (target-leader)/10;
+			window.scrollTo(0,leader);
+			if(target == leader){	
+				clearInterval(timer);
+			}
+		},20)
+	}
+
+}
+</script>

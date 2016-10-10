@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>微博发布</title>
+	<style type="text/css" media="screen">
+		ul{
+			list-style: none;
+		}
+		*{padding: 0;margin:0;}
+	.box {
+            margin: 100px auto;
+            width: 600px;
+            height: auto;
+            border:1px solid #333;
+            padding: 30px 0;
+        }
+      textarea {
+            width: 450px;
+            resize: none;  /*防止用户拖动 右下角*/
+        }
+        .box li{
+        	width: 450px;
+			line-height: 30px;
+			border-bottom:1px dashed #ccc;
+			margin-left: 80px;
+        }
+        .box li a {
+            float: right;
+        }
+
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	//获取对象
+	var txt = document.getElementsByTagName("textarea")[0];
+	var btn = document.getElementsByTagName('button')[0];
+	var ul = document.createElement("ul");//动态创建ul
+	btn.parentNode.appendChild(ul);//追加到div的最后
+	btn.onclick = function(){
+		if(txt.value == ""){
+			alert("不能为空！")
+			return false;
+		}
+		else{
+			var newLi = document.createElement("li");//动态创建li元素
+			newLi.innerHTML = txt.value + '<a href = "javascript:;">删除</a>';//动态创建有删除的a标签
+			txt.value = "";
+			var lis = ul.children;
+			if(lis == 0){
+				ul.appendChild(newLi);
+			}
+			else{
+				ul.insertBefore(newLi,lis[0]);//每次生成的放在第一个前面
+			}
+			var a = document.getElementsByTagName('a');//获得li下的各个a
+			for (var i = 0; i< a.length; i++){
+				a[i].onclick = function(){
+					ul.removeChild(this.parentNode);
+				}
+			}
+		}
+	}
+}
+</script>
+</head>
+<body>	
+	<div class="box">
+    微博发布: <textarea name="txt" id="text" cols="30" rows="10"></textarea>  <button>发布</button>
+	</div>
+</body>
+</html>

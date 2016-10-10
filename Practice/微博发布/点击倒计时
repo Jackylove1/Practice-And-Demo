@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>点击倒计时</title>
+</head>
+<body>
+	<input type="text">
+	<button type="button" id="btn">点击倒计时</button>
+</body>
+</html>
+<script type="text/javascript">
+var btn = document.getElementById('btn');
+var time = 5;
+var timer;//定时器的名字
+btn.onclick = function(){
+	clearInterval(timer);
+	this.disabled = true; //变成不可点击
+	var that = this; //保存btn对象变量
+	timer = setInterval(setText,1000);//开启定时器
+	//采用闭包的方式  可以访问里面的that变量
+	function setText(){  
+		time--;
+	if(time < 0){
+		that.innerHTML =  "重新发送信息";
+		that.disabled = false;
+		clearInterval(timer);
+		time = 5;
+	}
+	else{
+		that.innerHTML = "还剩" + time+ "秒";
+	}
+}
+}
+</script>

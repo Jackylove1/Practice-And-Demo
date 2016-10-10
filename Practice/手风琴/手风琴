@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>手风琴</title>
+	<style type="text/css" media="screen">
+		ul{list-style: none;}
+		*{padding:0;margin:0;}
+		.box{
+			width: 1150px;
+			height: 400px;
+			margin:50px auto;
+			border:1px solid red;
+		}
+		div li{
+			width: 240px;
+			height: 400px;
+			float:left;
+		}
+		div ul{
+			width: 1300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>
+<script src="animate.js"></script>
+<script type="text/javascript">
+var box = document.getElementsByTagName('div')[0];
+var lis = box.children[0].children;
+for(var i=0;i<lis.length;i++)
+    {
+       	lis[i].style.backgroundImage = "url(images/"+(i+1)+".jpg)";//动态增加li上的每个图片
+	   	lis[i].onmouseover = function(){
+	   		for(var j = 0; j< lis.length; j++){
+	   			animate(lis[j],{width:100})//先平均剩下的宽度
+	   		}
+			animate(this,{width:800});//选中部分的宽度
+		}
+		lis[i].onmouseout = function(){
+			for(var j=0; j< lis.length; j++){
+				animate(lis[j],{width:240});
+			}//鼠标移除部分，将宽度平均；
+		}
+	}
+</script>

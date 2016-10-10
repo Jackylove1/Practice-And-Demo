@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>时钟效果</title>
+	<style type="text/css" media="screen">
+		.clock{
+			width:600px;
+			height: 600px;
+			margin:150px auto;
+			background:url(images/clock.jpg) no-repeat;
+			position: relative;
+		}
+		.clock div{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top:0;
+			left:0;
+		}
+		.h{
+			background: url(images/hour.png) no-repeat 50% center;
+		}
+		.m{
+			background: url(images/minute.png) no-repeat center center;
+		}
+		.s{
+			background: url(images/second.png) no-repeat 50% 50%;
+		}
+		
+	</style>
+	<script type="text/javascript">
+
+	window.onload = function(){
+		var hour = document.getElementById("hour");
+  		var minute = document.getElementById("minute");
+  		var second = document.getElementById("second");
+    // 开始定时器
+   		var s = 0,m = 0, h = 0, ms = 0;
+   //getTime是取得距离1970的毫秒数
+    	setInterval(function() {
+        var date = new Date();//得到最新的时间
+        ms = date.getMilliseconds(); // 现在的毫秒数
+        s = date.getSeconds() + ms / 1000;//取得现在秒数
+        m = date.getMinutes() + s / 60;//取得现在分钟
+        h = date.getHours() % 12 + m / 60 ;
+        //旋转角度
+        second.style.WebkitTransform = "rotate("+ s*6 +"deg)";
+        minute.style.WebkitTransform = "rotate("+ m*6 +"deg)";
+        hour.style.WebkitTransform = "rotate("+ h*30 +"deg)";
+        second.style.MozTransform = "rotate("+ s*6 +"deg)";
+        minute.style.MozTransform = "rotate("+ m*6 +"deg)";
+        hour.style.MozTransform = "rotate("+ h*30 +"deg)";
+    },100)
+}
+	</script>
+</head>
+<body>
+	<div class="clock">
+		<div class="h" id="hour"></div>
+		<div class="m" id="minute"></div>
+		<div class="s" id="second"></div>
+	</div>
+
+</body>
+</html>

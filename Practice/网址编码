@@ -1,0 +1,29 @@
+网址编码
+把网址送入后台，但是后台不认识特殊符号；
+所以要实现编码，在传入后台；
+
+var url = "http://www.baidu.com?name=ady";
+encodeURIComponent();把字符串进行编码
+decodeURICompinent();对字符串进行解码
+
+用slice和substring都用两个位置来截取
+但是substring只能小数字在前；
+
+屏幕滚动事件：
+window.onscroll = fucntion(){};
+window.onresize = fucntion(){};
+
+同步和异步：
+同步： 彼此等待  阻塞的
+异步： 各干干的  非阻塞的
+
+iframen：实现局部刷新，不适用xmlhttprequest;就是一个页面内，套了子页面
+
+xml请求步骤：
+xhr
+xhr.open
+xhr.send
+xhr.
+
+
+回调函数：

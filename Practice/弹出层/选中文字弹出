@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>选中文字弹出</title>
+	<style type="text/css" media="screen">
+		#test{
+			width: 400px;
+			margin:50px;
+		}
+		#demo{
+			position:absolute;
+			top:0;
+			left:0;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			display: none;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="demo"></div>
+	<div id="test">我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字我要复制的文字</div>
+<div id="another">
+    我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字 我不要的文字
+</div>
+</body>
+</html>
+<script type="text/javascript">
+var test = document.getElementById('test');
+var demo = document.getElementById('demo');
+
+</script>

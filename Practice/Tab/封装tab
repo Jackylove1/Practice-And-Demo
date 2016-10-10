@@ -1,0 +1,18 @@
+//用于多个tab栏之间切换不相互影响；通过给他们每个id区分开
+function tab(id){
+	var target = document.getElementById(id);
+	var span = target.getElementsByTagName('span');
+	var lis = target.getElementsByTagName('li');
+	for(var i = 0; i< span.length; i++){
+
+		span[i].index = i;
+		span[i].onmouseover = function(){
+			for (var j = 0; j<span.length;j++){
+				span[j].className = "";
+				lis[j].className = "";
+			}
+			lis[this.index].style.display = "block";
+		}
+
+	}
+}

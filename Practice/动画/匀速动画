@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>匀速动画</title>
+	<style type="text/css" media="screen">
+		#box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        #box1 {
+            position: absolute;
+            top: 150px;
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+		
+	</style>
+</head>
+<body>
+	<button id="btn200">200</button>
+	<button id="btn400">400</button>
+	<div id="box"></div>
+	<div id="box1"></div>
+</body>
+</html>
+<script type="text/javascript">
+var box = document.getElementById('box');
+var box1 = document.getElementById('box1');
+var btn200 = document.getElementById('btn200');
+var btn400 = document.getElementById('btn400');
+btn200.onclick = function() {
+        animate(box,200);
+        animate(box1,500);
+    }
+    btn400.onclick = function() {
+        animate(box,400);
+    }
+    var timer = null;
+ function animate(obj,target){
+ 	clearInterval(timer);
+ 	var speed = obj.offsetLeft < target ? 5 : -5;
+ 	//原理：通过判断每次增加5像素来到达终点
+ 	//当reslut小于5，直接跳到终点，同时关闭定时器;
+ 	obj.timer = setInterval(function(){
+ 	 	var result = target - obj.offsetLeft;
+ 	 	obj.style.left = obj.offsetLeft + speed + "px";
+ 	 	if(Math.abs(result) <= 5 ){
+ 	 		clearInterval(obj.timer);
+ 	 		obj.style.style = target + "px";
+ 	 	}
+ 	},30)
+ }
+</script>
